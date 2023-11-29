@@ -1,0 +1,51 @@
+apiVersion: api.cerbos.dev/v1
+description: |-
+  Organization access control policy for CerHub, utilizing derived roles from organization_roles.yaml
+resourcePolicy:
+  resource: "organization"
+  version: "default"
+  importDerivedRoles:
+    - cerhub_org_roles
+  rules:
+    - actions: ['manage_team', 'delete_organization', 'create_repositories']
+      effect: EFFECT_ALLOW
+      derivedRoles: 
+        - org_owner
+
+    - actions: ['view_team_members', 'create_project_boards']
+      effect: EFFECT_ALLOW
+      derivedRoles: 
+        - org_member
+
+    - actions: ['manage_interaction_limits', 'hide_comments']
+      effect: EFFECT_ALLOW
+      derivedRoles: 
+        - org_moderator
+
+    - actions: ['edit_billing_information']
+      effect: EFFECT_ALLOW
+      derivedRoles: 
+        - billing_manager
+
+    - actions: ['manage_security_alerts']
+      effect: EFFECT_ALLOW
+      derivedRoles: 
+        - security_manager
+
+    - actions: ['manage_github_apps']
+      effect: EFFECT_ALLOW
+      derivedRoles: 
+        - github_app_manager
+
+    - actions: ['access_repositories']
+      effect: EFFECT_ALLOW
+      derivedRoles: 
+        - outside_collaborator
+
+  schemas: 
+    principalSchema: 
+      ref: cerbos:///principal.json
+    resourceSchema: 
+      ref: cerbos:///organization.json
+      ignoreWhen: 
+        actions: ['create']
