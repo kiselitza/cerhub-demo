@@ -1,11 +1,45 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$comment": "Schema for a repository objects in the CerHub system",
+  "$comment": "Schema for a repository object attributes of the CerHub system",
   "type": "object",
   "properties": {
-    "kind": { "type": "string" },
-    "id": { "type": "string" },
-    "attr": { "$ref": "cerbos:///repository_attributes.json" }
+    "organization": { "type": "string" },
+    "repo_admins": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repo_maintainers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repo_contributors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repo_readers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "deployment_specialists": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repo_auditors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
   },
-  "required": ["kind", "id", "attr"]
+  "required": ["organization", "repo_admins", "repo_maintainers", "repo_contributors", "repo_readers", "deployment_specialists", "repo_auditors"]
 }
