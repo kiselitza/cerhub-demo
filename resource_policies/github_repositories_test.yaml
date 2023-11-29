@@ -1,0 +1,125 @@
+# yaml-language-server: $schema=https://api.cerbos.dev/latest/cerbos/policy/v1/TestSuite.schema.json
+# docs: https://docs.cerbos.dev/cerbos/latest/policies/compile#testing
+name: GitHub Repositories Policy Tests
+description: Tests for verifying the github repositories policy
+
+tests:
+  - name: GitHub Repositories Policy Tests
+    input:
+      principals:
+        - alice
+        - bob
+        - charlie
+      resources:
+        - app_development
+        - cloud_services
+      actions:
+        - access_ci_cd
+        - access_documentation
+        - compliance_report
+        - configure_repository
+        - deploy
+        - manage_issues
+        - manage_own_issues
+        - manage_own_pull_requests
+        - manage_pull_requests
+        - read_all
+        - read_repo
+        - write_repo
+        
+    expected:
+      - principal: alice
+        resource: cloud_services
+        actions:
+          access_ci_cd: EFFECT_DENY
+          access_documentation: EFFECT_DENY
+          compliance_report: EFFECT_DENY
+          configure_repository: EFFECT_DENY
+          deploy: EFFECT_DENY
+          manage_issues: EFFECT_DENY
+          manage_own_issues: EFFECT_ALLOW
+          manage_own_pull_requests: EFFECT_ALLOW
+          manage_pull_requests: EFFECT_DENY
+          read_all: EFFECT_DENY
+          read_repo: EFFECT_DENY
+          write_repo: EFFECT_ALLOW
+
+      - principal: alice
+        resource: app_development
+        actions:
+          access_ci_cd: EFFECT_ALLOW
+          access_documentation: EFFECT_ALLOW
+          compliance_report: EFFECT_ALLOW
+          configure_repository: EFFECT_ALLOW
+          deploy: EFFECT_ALLOW
+          manage_issues: EFFECT_ALLOW
+          manage_own_issues: EFFECT_ALLOW
+          manage_own_pull_requests: EFFECT_ALLOW
+          manage_pull_requests: EFFECT_ALLOW
+          read_all: EFFECT_ALLOW
+          read_repo: EFFECT_ALLOW
+          write_repo: EFFECT_ALLOW
+
+      - principal: bob
+        resource: cloud_services
+        actions:
+          access_ci_cd: EFFECT_DENY
+          access_documentation: EFFECT_ALLOW
+          compliance_report: EFFECT_DENY
+          configure_repository: EFFECT_DENY
+          deploy: EFFECT_DENY
+          manage_issues: EFFECT_DENY
+          manage_own_issues: EFFECT_DENY
+          manage_own_pull_requests: EFFECT_DENY
+          manage_pull_requests: EFFECT_DENY
+          read_all: EFFECT_DENY
+          read_repo: EFFECT_ALLOW
+          write_repo: EFFECT_DENY
+
+      - principal: bob
+        resource: app_development
+        actions:
+          access_ci_cd: EFFECT_DENY
+          access_documentation: EFFECT_DENY
+          compliance_report: EFFECT_DENY
+          configure_repository: EFFECT_ALLOW
+          deploy: EFFECT_DENY
+          manage_issues: EFFECT_ALLOW
+          manage_own_issues: EFFECT_DENY
+          manage_own_pull_requests: EFFECT_DENY
+          manage_pull_requests: EFFECT_ALLOW
+          read_all: EFFECT_DENY
+          read_repo: EFFECT_DENY
+          write_repo: EFFECT_DENY
+
+      - principal: charlie
+        resource: cloud_services
+        actions:
+          access_ci_cd: EFFECT_ALLOW
+          access_documentation: EFFECT_DENY
+          compliance_report: EFFECT_DENY
+          configure_repository: EFFECT_DENY
+          deploy: EFFECT_ALLOW
+          manage_issues: EFFECT_DENY
+          manage_own_issues: EFFECT_ALLOW
+          manage_own_pull_requests: EFFECT_ALLOW
+          manage_pull_requests: EFFECT_DENY
+          read_all: EFFECT_DENY
+          read_repo: EFFECT_DENY
+          write_repo: EFFECT_ALLOW
+
+      - principal: charlie
+        resource: app_development
+        actions:
+          access_ci_cd: EFFECT_DENY
+          access_documentation: EFFECT_DENY
+          compliance_report: EFFECT_DENY
+          configure_repository: EFFECT_DENY
+          deploy: EFFECT_DENY
+          manage_issues: EFFECT_DENY
+          manage_own_issues: EFFECT_ALLOW
+          manage_own_pull_requests: EFFECT_ALLOW
+          manage_pull_requests: EFFECT_DENY
+          read_all: EFFECT_DENY
+          read_repo: EFFECT_DENY
+          write_repo: EFFECT_ALLOW
