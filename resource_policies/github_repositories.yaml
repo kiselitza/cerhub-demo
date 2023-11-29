@@ -39,10 +39,10 @@ resourcePolicy:
       derivedRoles: 
         - repo_auditor
 
-  schemas: 
-    principalSchema: 
-      ref: cerbos:///principal.json
-    resourceSchema: 
-      ref: cerbos:///repository.json
-      ignoreWhen: 
-        actions: ['create']
+#   schemas: 
+#    principalSchema: 
+#      ref: cerbos:///principal.json
+#    resourceSchema: 
+#      ref: cerbos:///repository.json
+#      ignoreWhen: 
+#        actions: ['create']
