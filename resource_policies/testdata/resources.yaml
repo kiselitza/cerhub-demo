@@ -42,6 +42,7 @@ resources:
       repo_admins:
         - alice
       repo_maintainers:
+        - alice
         - bob
       repo_contributors:
         - charlie
