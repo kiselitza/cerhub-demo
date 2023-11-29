@@ -1,15 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$comment": "Schema for a principal objects in the CerHub system",
+  "$comment": "See https://json-schema.org/learn/ for documentation about JSON schemas",
   "type": "object",
   "properties": {
-    "id": { "type": "string" },
-      "roles": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
     "organizations": {
       "type": "array",
       "items": {
@@ -17,5 +10,5 @@
       }
     }
   },
-  "required": ["id", "roles"]
+  "required": ["organizations"]
 }
