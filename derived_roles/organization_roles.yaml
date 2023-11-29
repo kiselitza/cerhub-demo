@@ -1,0 +1,48 @@
+# docs: https://docs.cerbos.dev/cerbos/latest/policies/derived_roles
+apiVersion: "api.cerbos.dev/v1"
+description: |-
+  Dynamic roles for GitHub-like organization management in the CerHub app
+derivedRoles:
+  name: cerhub_org_roles
+  definitions:
+    - name: org_owner
+      parentRoles: ["user"]
+      condition:
+        match:
+          expr: request.principal.id in request.resource.attr.org_owners
+
+    - name: org_member
+      parentRoles: ["user"]
+      condition:
+        match:
+          expr: request.principal.id in request.resource.attr.org_members
+
+    - name: org_moderator
+      parentRoles: ["user"]
+      condition:
+        match:
+          expr: request.principal.id in request.resource.attr.org_moderators
+
+    - name: billing_manager
+      parentRoles: ["user"]
+      condition:
+        match:
+          expr: request.principal.id in request.resource.attr.billing_managers
+
+    - name: security_manager
+      parentRoles: ["user"]
+      condition:
+        match:
+          expr: request.principal.id in request.resource.attr.security_managers
+
+    - name: github_app_manager
+      parentRoles: ["user"]
+      condition:
+        match:
+          expr: request.principal.id in request.resource.attr.github_app_managers
+
+    - name: outside_collaborator
+      parentRoles: ["user"]
+      condition:
+        match:
+          expr: request.principal.id in request.resource.attr.outside_collaborators
