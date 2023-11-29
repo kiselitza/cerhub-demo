@@ -4,6 +4,13 @@ description: |-
 resourcePolicy:
   resource: "organization"
   version: "default"
+  schemas: 
+    principalSchema: 
+      ref: cerbos:///principal.json
+    resourceSchema: 
+      ref: cerbos:///organization.json
+      ignoreWhen: 
+        actions: ['create']
   importDerivedRoles:
     - cerhub_org_roles
   rules:
@@ -41,11 +48,3 @@ resourcePolicy:
       effect: EFFECT_ALLOW
       derivedRoles: 
         - outside_collaborator
-
-  schemas: 
-    principalSchema: 
-      ref: cerbos:///principal.json
-    resourceSchema: 
-      ref: cerbos:///organization.json
-      ignoreWhen: 
-        actions: ['create']
