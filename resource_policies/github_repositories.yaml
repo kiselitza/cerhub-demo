@@ -6,6 +6,13 @@ description: |-
 resourcePolicy:
   resource: "repository"
   version: "default"
+  schemas: 
+    principalSchema: 
+      ref: cerbos:///principal.json
+    resourceSchema: 
+      ref: cerbos:///repository.json
+      ignoreWhen: 
+        actions: ['create']
   importDerivedRoles:
     - cerhub_repository_roles
   rules:
@@ -38,11 +45,3 @@ resourcePolicy:
       effect: EFFECT_ALLOW
       derivedRoles: 
         - repo_auditor
-
-#   schemas: 
-#    principalSchema: 
-#      ref: cerbos:///principal.json
-#    resourceSchema: 
-#      ref: cerbos:///repository.json
-#      ignoreWhen: 
-#        actions: ['create']
