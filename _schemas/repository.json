@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Schema for a repository objects in the CerHub system",
+  "type": "object",
+  "properties": {
+    "kind": { "type": "string" },
+    "id": { "type": "string" },
+    "attr": { "$ref": "cerbos:///repository_attributes.json" }
+  },
+  "required": ["kind", "id", "attr"]
+}
