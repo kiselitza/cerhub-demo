@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Schema for a organization objects in the CerHub system",
+  "type": "object",
+  "properties": {
+    "org_owners": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "org_members": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "org_moderators": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "billing_managers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "security_managers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "github_app_managers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "outside_collaborators": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+      "required": ["org_owners", "org_members", "org_moderators", "billing_managers", "security_managers", "github_app_managers", "outside_collaborators"]
+}
