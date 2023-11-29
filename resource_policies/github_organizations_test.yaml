@@ -1,0 +1,118 @@
+# yaml-language-server: $schema=https://api.cerbos.dev/latest/cerbos/policy/v1/TestSuite.schema.json
+# docs: https://docs.cerbos.dev/cerbos/latest/policies/compile#testing
+name: GitHub Organizations Policy Tests
+description: Tests for verifying the github organizations policy
+
+tests:
+  - name: GitHub Organizations Policy Tests
+    input:
+      principals:
+        - alice
+        - bob
+        - charlie
+      resources:
+        - data_corp
+        - orgtech_inc
+      actions:
+        - access_repositories
+        - create_project_boards
+        - create_repositories
+        - delete_organization
+        - edit_billing_information
+        - hide_comments
+        - manage_github_apps
+        - manage_interaction_limits
+        - manage_security_alerts
+        - manage_team
+        - view_team_members
+
+    expected:
+      - principal: alice
+        resource: data_corp
+        actions:
+          access_repositories: EFFECT_DENY
+          create_project_boards: EFFECT_ALLOW
+          create_repositories: EFFECT_DENY
+          delete_organization: EFFECT_DENY
+          edit_billing_information: EFFECT_DENY
+          hide_comments: EFFECT_DENY
+          manage_github_apps: EFFECT_DENY
+          manage_interaction_limits: EFFECT_DENY
+          manage_security_alerts: EFFECT_DENY
+          manage_team: EFFECT_DENY
+          view_team_members: EFFECT_ALLOW
+
+      - principal: alice
+        resource: orgtech_inc
+        actions:
+          access_repositories: EFFECT_DENY
+          create_project_boards: EFFECT_ALLOW
+          create_repositories: EFFECT_ALLOW
+          delete_organization: EFFECT_ALLOW
+          edit_billing_information: EFFECT_ALLOW
+          hide_comments: EFFECT_DENY
+          manage_github_apps: EFFECT_DENY
+          manage_interaction_limits: EFFECT_DENY
+          manage_security_alerts: EFFECT_DENY
+          manage_team: EFFECT_ALLOW
+          view_team_members: EFFECT_ALLOW
+
+      - principal: bob
+        resource: data_corp
+        actions:
+          access_repositories: EFFECT_DENY
+          create_project_boards: EFFECT_ALLOW
+          create_repositories: EFFECT_DENY
+          delete_organization: EFFECT_DENY
+          edit_billing_information: EFFECT_DENY
+          hide_comments: EFFECT_DENY
+          manage_github_apps: EFFECT_DENY
+          manage_interaction_limits: EFFECT_DENY
+          manage_security_alerts: EFFECT_DENY
+          manage_team: EFFECT_DENY
+          view_team_members: EFFECT_ALLOW
+
+      - principal: bob
+        resource: orgtech_inc
+        actions:
+          access_repositories: EFFECT_DENY
+          create_project_boards: EFFECT_ALLOW
+          create_repositories: EFFECT_DENY
+          delete_organization: EFFECT_DENY
+          edit_billing_information: EFFECT_DENY
+          hide_comments: EFFECT_ALLOW
+          manage_github_apps: EFFECT_DENY
+          manage_interaction_limits: EFFECT_ALLOW
+          manage_security_alerts: EFFECT_DENY
+          manage_team: EFFECT_DENY
+          view_team_members: EFFECT_ALLOW
+
+      - principal: charlie
+        resource: data_corp
+        actions:
+          access_repositories: EFFECT_DENY
+          create_project_boards: EFFECT_ALLOW
+          create_repositories: EFFECT_DENY
+          delete_organization: EFFECT_DENY
+          edit_billing_information: EFFECT_DENY
+          hide_comments: EFFECT_DENY
+          manage_github_apps: EFFECT_ALLOW
+          manage_interaction_limits: EFFECT_DENY
+          manage_security_alerts: EFFECT_ALLOW
+          manage_team: EFFECT_DENY
+          view_team_members: EFFECT_ALLOW
+
+      - principal: charlie
+        resource: orgtech_inc
+        actions:
+          access_repositories: EFFECT_DENY
+          create_project_boards: EFFECT_ALLOW
+          create_repositories: EFFECT_DENY
+          delete_organization: EFFECT_DENY
+          edit_billing_information: EFFECT_DENY
+          hide_comments: EFFECT_DENY
+          manage_github_apps: EFFECT_DENY
+          manage_interaction_limits: EFFECT_DENY
+          manage_security_alerts: EFFECT_DENY
+          manage_team: EFFECT_DENY
+          view_team_members: EFFECT_ALLOW
