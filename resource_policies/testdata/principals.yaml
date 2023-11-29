@@ -1,25 +1,25 @@
 principals:
   alice:
-    id: alice
+    id: "alice"
     roles:
-      - user
+      - "user"
     attr:
       organization:
-        - OrgTech Inc.
-        - DataCorp
+        - "OrgTech Inc."
+        - "DataCorp"
   bob:
-    id: bob
+    id: "bob"
     roles:
-      - user
+      - "user"
     attr:
       organization:
-        - OrgTech Inc.
-        - DataCorp
+        - "OrgTech Inc."
+        - "DataCorp"
   charlie:
-    id: charlie
+    id: "charlie"
     roles:
-      - user
+      - "user"
     attr:
       organization:
-        - OrgTech Inc.
-        - DataCorp
+        - "OrgTech Inc."
+        - "DataCorp"
