@@ -1,0 +1,25 @@
+principals:
+  alice:
+    id: alice
+    roles:
+      - user
+    attr:
+      organization:
+        - OrgTech Inc.
+        - DataCorp
+  bob:
+    id: bob
+    roles:
+      - user
+    attr:
+      organization:
+        - OrgTech Inc.
+        - DataCorp
+  charlie:
+    id: charlie
+    roles:
+      - user
+    attr:
+      organization:
+        - OrgTech Inc.
+        - DataCorp
