@@ -1,68 +1,66 @@
 resources:
   data_corp:
-    id: DataCorp
-    kind: organization
+    id: "DataCorp"
+    kind: "organization"
     attr:
       org_owners:
       org_members:
-        - alice
-        - bob
-        - charlie
+        - "alice"
+        - "bob"
+        - "charlie"
       org_moderators:
       billing_managers:
       security_managers:
-        - charlie
+        - "charlie"
       github_app_managers:
-        - charlie
+        - "charlie"
       outside_collaborators:
   
   orgtech_inc:
-    id: OrgTech Inc.
-    kind: organization
+    id: "OrgTech Inc."
+    kind: "organization"
     attr:
       org_owners:
-        - alice
+        - "alice"
       org_members:
-        - alice
-        - bob
-        - charlie
+        - "alice"
+        - "bob"
+        - "charlie"
       org_moderators:
-        - bob
+        - "bob"
       billing_managers:
-        - alice
+        - "alice"
       security_managers:
       github_app_managers:
       outside_collaborators:
 
   app_development:
-    id: AppDevelopment
-    kind: repository
+    id: "AppDevelopment"
+    kind: "repository"
     attr:
-      organization: OrgTech Inc.
+      organization: "OrgTech Inc."
       repo_admins:
-        - alice
+        - "alice"
       repo_maintainers:
-        - alice
-        - bob
+        - "bob"
       repo_contributors:
-        - charlie
+        - "charlie"
       repo_readers:
       deployment_specialists:
       repo_auditors:
 
   cloud_services:
-    id: CloudServices
-    kind: repository
+    id: "CloudServices"
+    kind: "repository"
     attr:
-      organization: OrgTech Inc.
+      organization: "OrgTech Inc."
       repo_admins:
       repo_maintainers:
       repo_contributors:
-        - alice
-        - charlie
+        - "alice"
+        - "charlie"
       repo_readers:
-        - bob
+        - "bob"
       deployment_specialists:
-        - charlie
+        - "charlie"
       repo_auditors:
-
