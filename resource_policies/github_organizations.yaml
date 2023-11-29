@@ -42,10 +42,10 @@ resourcePolicy:
       derivedRoles: 
         - outside_collaborator
 
-  schemas: 
-    principalSchema: 
-      ref: cerbos:///principal.json
-    resourceSchema: 
-      ref: cerbos:///organization.json
-      ignoreWhen: 
-        actions: ['create']
+#  schemas: 
+#    principalSchema: 
+#      ref: cerbos:///principal.json
+#    resourceSchema: 
+#      ref: cerbos:///organization.json
+#      ignoreWhen: 
+#        actions: ['create']
