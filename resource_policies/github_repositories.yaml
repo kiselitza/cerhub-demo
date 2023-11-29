@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=https://api.cerbos.dev/latest/cerbos/policy/v1/Policy.schema.json
+# docs: https://docs.cerbos.dev/cerbos/latest/policies/resource_policies
+apiVersion: api.cerbos.dev/v1
+description: |-
+  Repository access control policy for CerHub, utilizing derived roles from repository_roles.yml
+resourcePolicy:
+  resource: "repository"
+  version: "default"
+  importDerivedRoles:
+    - cerhub_repository_roles
+  rules:
+    - actions: ["*"]
+      effect: EFFECT_ALLOW
+      derivedRoles: 
+        - repo_admin
+
+    - actions: ['manage_issues', 'manage_pull_requests', 'configure_repository']
+      effect: EFFECT_ALLOW
+      derivedRoles: 
+        - repo_maintainer
+
+    - actions: ['write_repo', 'manage_own_pull_requests', 'manage_own_issues']
+      effect: EFFECT_ALLOW
+      derivedRoles: 
+        - repo_contributor
+
+    - actions: ['read_repo', 'access_documentation']
+      effect: EFFECT_ALLOW
+      derivedRoles: 
+        - repo_reader
+
+    - actions: ['deploy', 'access_ci_cd']
+      effect: EFFECT_ALLOW
+      derivedRoles: 
+        - deployment_specialist
+
+    - actions: ['read_all', 'compliance_report']
+      effect: EFFECT_ALLOW
+      derivedRoles: 
+        - repo_auditor
+
+  schemas: 
+    principalSchema: 
+      ref: cerbos:///principal.json
+    resourceSchema: 
+      ref: cerbos:///repository.json
+      ignoreWhen: 
+        actions: ['create']
