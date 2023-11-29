@@ -1,0 +1,42 @@
+# docs: https://docs.cerbos.dev/cerbos/latest/policies/derived_roles
+apiVersion: "api.cerbos.dev/v1"
+description: |-
+  Derived roles for repository access in the CerHub app
+derivedRoles:
+  name: cerhub_repository_roles
+  definitions:
+    - name: repo_admin
+      parentRoles: ["user"]
+      condition:
+        match:
+          expr: request.principal.id in request.resource.attr.repo_admins
+
+    - name: repo_maintainer
+      parentRoles: ["user"]
+      condition:
+        match:
+          expr: request.principal.id in request.resource.attr.repo_maintainers
+
+    - name: repo_contributor
+      parentRoles: ["user"]
+      condition:
+        match:
+          expr: request.principal.id in request.resource.attr.repo_contributors
+
+    - name: repo_reader
+      parentRoles: ["user"]
+      condition:
+        match:
+          expr: request.principal.id in request.resource.attr.repo_readers
+
+    - name: deployment_specialist
+      parentRoles: ["user"]
+      condition:
+        match:
+          expr: request.principal.id in request.resource.attr.deployment_specialists
+
+    - name: repo_auditor
+      parentRoles: ["user"]
+      condition:
+        match:
+          expr: request.principal.id in request.resource.attr.repo_auditors
