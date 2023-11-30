@@ -32,5 +32,5 @@
       "items": { "type": "string" }
     }
   },
-      "required": ["org_owners", "org_members", "org_moderators", "billing_managers", "security_managers", "github_app_managers", "outside_collaborators"]
+  "required": []
 }

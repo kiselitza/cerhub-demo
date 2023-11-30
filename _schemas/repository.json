@@ -41,5 +41,5 @@
       }
     }
   },
-  "required": ["organization", "repo_admins", "repo_maintainers", "repo_contributors", "repo_readers", "deployment_specialists", "repo_auditors"]
+  "required": []
 }
